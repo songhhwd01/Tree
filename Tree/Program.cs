@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Tree
 {
@@ -6,7 +7,11 @@ namespace Tree
     {
         static void Main(string[] args)
         {
-            string tree = "A(B(C(E(H,),F),D(,I)),J(K,L(M(,N),)))";
+            //从Tree.txt文件读取
+            string tree = string.Empty;
+            tree = File.ReadAllText(Environment.CurrentDirectory + "\\Tree.txt");
+
+            //string tree = "A(B(C(E(H,),F),D(,I)),J(K,L(M(,N),)))";
             TwoXTree twoXTree = TwoXTree.CreateTwoXTree(tree);
 
             int totalCount = twoXTree.GetTotalCount();
